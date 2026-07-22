@@ -21,17 +21,22 @@ const playButton = document.getElementById("playButton");
 // ВЫБОР РЕЖИМА
 //==================================================
 
-function showMainMenu() {
+const screens = {
 
-    mainMenu.style.display = "flex";
-    modeMenu.style.display = "none";
+    mainMenu,
+    modeMenu
 
-}
+};
 
-function showModeMenu() {
+function showScreen(screenName) {
 
-    mainMenu.style.display = "none";
-    modeMenu.style.display = "flex";
+    for (const screen in screens) {
+
+        screens[screen].style.display = "none";
+
+    }
+
+    screens[screenName].style.display = "flex";
 
 }
 
@@ -41,7 +46,7 @@ function showModeMenu() {
 
 playButton.addEventListener("click", () => {
 
-    showModeMenu();
+    showScreen("modeMenu");
 
 });
 
@@ -49,6 +54,6 @@ const backToMainMenuButton = document.getElementById("backToMainMenuButton");
 
 backToMainMenuButton.addEventListener("click", () => {
 
-    showMainMenu();
+    showScreen("mainMenu");
 
 });
