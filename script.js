@@ -21,9 +21,9 @@ const playButton = document.getElementById("playButton");
 // ВЫБОР РЕЖИМА
 //==================================================
 
-const screens = {
-
 const rotateScreen = document.getElementById("rotateScreen");
+
+const screens = {
 
     mainMenu,
     modeMenu
