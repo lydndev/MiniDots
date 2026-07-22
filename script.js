@@ -79,9 +79,17 @@ function checkOrientation() {
 
         rotateScreen.style.display = "flex";
 
+        // Скрываем игровые экраны
+        for (const screen of Object.values(UI.screens)) {
+            screen.style.display = "none";
+        }
+
     } else {
 
         rotateScreen.style.display = "none";
+
+        // Показываем последний экран
+        showScreen("mainMenu");
 
     }
 
@@ -90,5 +98,3 @@ function checkOrientation() {
 window.addEventListener("resize", checkOrientation);
 
 checkOrientation();
-
-showScreen("mainMenu");
