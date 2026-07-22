@@ -45,7 +45,9 @@ playButton.addEventListener("click", () => {
 
 });
 
-document.querySelector("#modeMenu button:last-child").addEventListener("click", () => {
+const backToMainMenuButton = document.getElementById("backToMainMenuButton");
+
+backToMainMenuButton.addEventListener("click", () => {
 
     showMainMenu();
 
