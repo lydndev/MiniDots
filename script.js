@@ -207,6 +207,7 @@ UI.modal.accept.addEventListener("click", enterFullscreen);
 //==================================================
 
 showScreen("mainMenu");
+alert("script работает");
 
 checkOrientation();
 
