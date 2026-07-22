@@ -19,7 +19,7 @@ const UI = {
     screens: {
         mainMenu: document.getElementById("mainMenu"),
         modeMenu: document.getElementById("modeMenu"),
-        roomMenu: document.getElementById("roomMenu")
+        roomMenu: document.getElementById("roomMenu"),
         gameRoom: 
 document.getElementById("gameRoom")
     },
@@ -75,7 +75,7 @@ const Game = {
 
     currentScreen: "mainMenu",
 
-    selectedMode: null
+    selectedMode: null,
 
     roomCode: null,
 
