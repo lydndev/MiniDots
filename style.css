@@ -56,42 +56,6 @@ body {
 
 }
 
-#mainMenu button {
-
-    width: 260px;
-
-    height: 60px;
-
-    border: none;
-
-    border-radius: 12px;
-
-    background: #2a364a;
-
-    color: white;
-
-    font-size: 22px;
-
-    cursor: pointer;
-
-    transition: .2s;
-
-}
-
-#mainMenu button:hover{
-
-    background:#40506d;
-
-    transform:scale(1.05);
-
-}
-
-#mainMenu button:active{
-
-    transform:scale(.95);
-
-}
-
 /*==================================================
 ОБЩИЙ СТИЛЬ КНОПОК
 ==================================================*/
