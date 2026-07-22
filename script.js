@@ -1,111 +1,215 @@
-/*  
-========================================================  
-MiniDots  
-Версия: Alpha 0.0.3  
-  
-Файл:  
-script.js  
-========================================================  
-*/  
-  
-//==================================================  
-// ГЛАВНОЕ МЕНЮ  
-//==================================================  
-  
-//==================================================  
-// ВЫБОР РЕЖИМА  
-//==================================================  
-  
-const UI = {  
-  
-    rotateScreen: document.getElementById("rotateScreen"),  
-  
-    screens: {  
-        mainMenu: document.getElementById("mainMenu"),  
-        modeMenu: document.getElementById("modeMenu"),  
-        roomMenu: document.getElementById("roomMenu")  
-    },  
-  
-buttons: {
+/*
+========================================================
+MiniDots
+Версия: Alpha 0.0.3
 
-    play: document.getElementById("playButton"),
+Файл:
+script.js
+========================================================
+*/
 
-    back: document.getElementById("backToMainMenuButton"),
+//==================================================
+// ИНТЕРФЕЙС
+//==================================================
 
-    mode1v1: document.getElementById("mode1v1Button"),
+const UI = {
 
-    mode3v3: document.getElementById("mode3v3Button"),
+    rotateScreen: document.getElementById("rotateScreen"),
 
-    mode5v5: document.getElementById("mode5v5Button"),
+    screens: {
+        mainMenu: document.getElementById("mainMenu"),
+        modeMenu: document.getElementById("modeMenu"),
+        roomMenu: document.getElementById("roomMenu")
+    },
 
-    createRoom: document.getElementById("createRoomButton"),
+    buttons: {
+        play: document.getElementById("playButton"),
+        back: document.getElementById("backToMainMenuButton"),
 
-    joinRoom: document.getElementById("joinRoomButton"),
+        mode1v1: document.getElementById("mode1v1Button"),
+        mode3v3: document.getElementById("mode3v3Button"),
+        mode5v5: document.getElementById("mode5v5Button"),
 
-    backToMode: document.getElementById("backToModeMenuButton")
+        createRoom: document.getElementById("createRoomButton"),
+        joinRoom: document.getElementById("joinRoomButton"),
 
-},
+        backToMode: document.getElementById("backToModeMenuButton")
+    },
 
-modal: {
+    modal: {
+        overlay: document.getElementById("modalOverlay"),
+        title: document.getElementById("modalTitle"),
+        text: document.getElementById("modalText"),
+        accept: document.getElementById("modalAcceptButton"),
+        cancel: document.getElementById("modalCancelButton")
+    }
 
-    overlay: document.getElementById("modalOverlay"),
+};
 
-    title: document.getElementById("modalTitle"),
+//==================================================
+// ДАННЫЕ ИГРЫ
+//==================================================
 
-    text: document.getElementById("modalText"),
+const Game = {
 
-    accept: document.getElementById("modalAcceptButton"),
+    currentScreen: "mainMenu",
+    selectedMode: null
 
-    cancel: document.getElementById("modalCancelButton")
+};
+
+//==================================================
+// ЭКРАНЫ
+//==================================================
+
+function showScreen(screenName) {
+
+    Game.currentScreen = screenName;
+
+    for (const screen of Object.values(UI.screens)) {
+        screen.style.display = "none";
+    }
+
+    UI.screens[screenName].style.display = "flex";
 
 }
 
+//==================================================
+// МОДАЛЬНОЕ ОКНО
+//==================================================
 
-//==================================================  
-// ОБРАБОТКА КНОПОК  
-//==================================================  
-  
-UI.buttons.play.addEventListener("click", () => {  
-  
-    showScreen("modeMenu");  
-  
-});  
-  
-UI.buttons.back.addEventListener("click", () => {  
-  
-    showScreen("mainMenu");  
-  
-});  
-  
-//==================================================  
-// ПРОВЕРКА ОРИЕНТАЦИИ  
-//==================================================  
-  
-function checkOrientation() {  
-  
-    if (window.innerHeight > window.innerWidth) {  
-  
-      UI.rotateScreen.style.display = "flex";  
-  
-        // Скрываем игровые экраны  
-        for (const screen of Object.values(UI.screens)) {  
-            screen.style.display = "none";  
-        }  
-  
-    } else {  
-  
-      UI.rotateScreen.style.display = "none";  
-  
-        // Показываем последний экран  
+function showModal(title, text) {
+
+    UI.modal.title.textContent = title;
+    UI.modal.text.textContent = text;
+
+    UI.modal.overlay.style.display = "flex";
+
+}
+
+function hideModal() {
+
+    UI.modal.overlay.style.display = "none";
+
+}
+
+//==================================================
+// ПОЛНОЭКРАННЫЙ РЕЖИМ
+//==================================================
+
+async function enterFullscreen() {
+
+    try {
+
+        if (document.documentElement.requestFullscreen) {
+
+            await document.documentElement.requestFullscreen();
+
+        }
+
+    } catch (error) {
+
+        console.log(error);
+
+    }
+
+    hideModal();
+
+}
+
+//==================================================
+// ПРОВЕРКА ОРИЕНТАЦИИ
+//==================================================
+
+function checkOrientation() {
+
+    if (window.innerHeight > window.innerWidth) {
+
+        UI.rotateScreen.style.display = "flex";
+
+        for (const screen of Object.values(UI.screens)) {
+            screen.style.display = "none";
+        }
+
+    } else {
+
+        UI.rotateScreen.style.display = "none";
+
         showScreen(Game.currentScreen);
-  
-    }  
-  
-}  
-  
-window.addEventListener("resize", checkOrientation);  
-  
+
+    }
+
+}
+
+window.addEventListener("resize", checkOrientation);
+
+//==================================================
+// КНОПКИ
+//==================================================
+
+// Главное меню
+
+UI.buttons.play.addEventListener("click", () => {
+
+    showScreen("modeMenu");
+
+});
+
+// Назад в главное меню
+
+UI.buttons.back.addEventListener("click", () => {
+
+    showScreen("mainMenu");
+
+});
+
+// Выбор режима
+
+UI.buttons.mode1v1.addEventListener("click", () => {
+
+    Game.selectedMode = "1v1";
+
+    showScreen("roomMenu");
+
+});
+
+UI.buttons.mode3v3.addEventListener("click", () => {
+
+    Game.selectedMode = "3v3";
+
+    showScreen("roomMenu");
+
+});
+
+UI.buttons.mode5v5.addEventListener("click", () => {
+
+    Game.selectedMode = "5v5";
+
+    showScreen("roomMenu");
+
+});
+
+// Назад к выбору режима
+
+UI.buttons.backToMode.addEventListener("click", () => {
+
+    showScreen("modeMenu");
+
+});
+
+// Модальное окно
+
+UI.modal.cancel.addEventListener("click", hideModal);
+
+UI.modal.accept.addEventListener("click", enterFullscreen);
+
+//==================================================
+// ЗАПУСК
+//==================================================
+
+showScreen("mainMenu");
+
 checkOrientation();
+
 if (window.innerWidth > window.innerHeight) {
 
     showModal(
@@ -114,47 +218,3 @@ if (window.innerWidth > window.innerHeight) {
     );
 
 }
-  
-//==================================================  
-// ВЫБОР РЕЖИМА  
-//==================================================  
-  
-UI.buttons.mode1v1.addEventListener("click", () => {  
-  
-    showScreen("roomMenu");  
-  
-});  
-  
-UI.buttons.mode3v3.addEventListener("click", () => {  
-  
-    showScreen("roomMenu");  
-  
-});  
-  
-UI.buttons.mode5v5.addEventListener("click", () => {  
-  
-    showScreen("roomMenu");  
-  
-});  
-  
-//==================================================  
-// НАЗАД  
-//==================================================  
-  
-UI.buttons.backToMode.addEventListener("click", () => {  
-  
-    showScreen("modeMenu");  
-  
-});
-
-UI.modal.cancel.addEventListener("click", () => {
-
-    hideModal();
-
-});
-
-UI.modal.accept.addEventListener("click", () => {
-
-    enterFullscreen();
-
-});
