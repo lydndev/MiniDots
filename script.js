@@ -105,7 +105,15 @@ function checkOrientation() {
   
 window.addEventListener("resize", checkOrientation);  
   
-checkOrientation();  
+checkOrientation();
+if (window.innerWidth > window.innerHeight) {
+
+    showModal(
+        "Полноэкранный режим",
+        "Для лучшего игрового опыта рекомендуем включить полноэкранный режим."
+    );
+
+}
   
 //==================================================  
 // ВЫБОР РЕЖИМА  
@@ -142,5 +150,11 @@ UI.buttons.backToMode.addEventListener("click", () => {
 UI.modal.cancel.addEventListener("click", () => {
 
     hideModal();
+
+});
+
+UI.modal.accept.addEventListener("click", () => {
+
+    enterFullscreen();
 
 });
