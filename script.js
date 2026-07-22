@@ -20,6 +20,8 @@ const UI = {
         mainMenu: document.getElementById("mainMenu"),
         modeMenu: document.getElementById("modeMenu"),
         roomMenu: document.getElementById("roomMenu")
+        gameRoom: 
+document.getElementById("gameRoom")
     },
 
     buttons: {
@@ -38,7 +40,14 @@ const UI = {
 
         joinRoom: document.getElementById("joinRoomButton"),
 
-        backToMode: document.getElementById("backToModeMenuButton")
+        backToMode: document.getElementById("backToModeMenuButton"),
+        copyRoomCode: document.getElementById("copyRoomCodeButton"),
+
+        selectMap: document.getElementById("selectMapButton"),
+
+        startRoom: document.getElementById("startRoomButton"),
+
+        leaveRoom: document.getElementById("leaveRoomButton")
 
     },
 
@@ -67,6 +76,10 @@ const Game = {
     currentScreen: "mainMenu",
 
     selectedMode: null
+
+    roomCode: null,
+
+    leader: "Вы"
 
 };
 
@@ -105,6 +118,45 @@ function showModal(title, text) {
 function hideModal() {
 
     UI.modal.overlay.style.display = "none";
+
+}
+
+//==================================================
+// КОМНАТА
+//==================================================
+
+function generateRoomCode() {
+
+    const symbols = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+
+    let code = "";
+
+    for (let i = 0; i < 6; i++) {
+
+        code += symbols[Math.floor(Math.random() * symbols.length)];
+
+    }
+
+    return code;
+
+}
+
+function createRoom() {
+
+    Game.roomCode = generateRoomCode();
+
+    document.getElementById("roomCode").textContent =
+        "Код: " + Game.roomCode;
+
+    document.getElementById("roomModeText").textContent =
+        "Режим: " + Game.selectedMode;
+
+    document.getElementById("blueTeam").innerHTML =
+        `<div class="playerSlot">👑 Вы</div>`;
+
+    document.getElementById("redTeam").innerHTML = "";
+
+    showScreen("gameRoom");
 
 }
 
@@ -206,12 +258,26 @@ UI.buttons.mode5v5.addEventListener("click", () => {
 
 });
 
+// Создать комнату
+
+UI.buttons.createRoom.addEventListener("click", () => {
+
+    createRoom();
+
+});
+
 // Назад к выбору режима
 
 UI.buttons.backToMode.addEventListener("click", () => {
 
     showScreen("modeMenu");
+});
 
+// Выйти из комнаты
+
+UI.buttons.leaveRoom.addEventListener("click", () => {
+
+    showScreen("roomMenu");
 });
 
 //==================================================
