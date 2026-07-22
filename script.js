@@ -45,7 +45,20 @@ const UI = {
     backToMode: document.getElementById("backToModeMenuButton")  
   
 }  
-  
+  modal: {
+
+    overlay: document.getElementById("modalOverlay"),
+
+    title: document.getElementById("modalTitle"),
+
+    text: document.getElementById("modalText"),
+
+    accept: document.getElementById("modalAcceptButton"),
+
+    cancel: document.getElementById("modalCancelButton")
+
+}
+
 };  
   
 const Game = {
@@ -69,7 +82,23 @@ function showScreen(screenName) {
     UI.screens[screenName].style.display = "flex";
 
 } 
-  
+
+  function showModal(title, text) {
+
+    UI.modal.title.textContent = title;
+
+    UI.modal.text.textContent = text;
+
+    UI.modal.overlay.style.display = "flex";
+
+}
+
+function hideModal() {
+
+    UI.modal.overlay.style.display = "none";
+
+}
+
 //==================================================  
 // ОБРАБОТКА КНОПОК  
 //==================================================  
@@ -107,6 +136,10 @@ function checkOrientation() {
   
         // Показываем последний экран  
         showScreen(Game.currentScreen);
+        showModal(
+    "Полноэкранный режим",
+    "Для лучшего игрового опыта рекомендуем открыть игру в полноэкранном режиме."
+);
   
     }  
   
@@ -146,4 +179,10 @@ UI.buttons.backToMode.addEventListener("click", () => {
   
     showScreen("modeMenu");  
   
+});
+
+UI.modal.cancel.addEventListener("click", () => {
+
+    hideModal();
+
 });
