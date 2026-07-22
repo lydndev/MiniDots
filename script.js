@@ -26,26 +26,27 @@ const UI = {
         roomMenu: document.getElementById("roomMenu")  
     },  
   
-    buttons: {  
-  
-    play: document.getElementById("playButton"),  
-  
-    back: document.getElementById("backToMainMenuButton"),  
-  
-    mode1v1: document.getElementById("mode1v1Button"),  
-  
-    mode3v3: document.getElementById("mode3v3Button"),  
-  
-    mode5v5: document.getElementById("mode5v5Button"),  
-  
-    createRoom: document.getElementById("createRoomButton"),  
-  
-    joinRoom: document.getElementById("joinRoomButton"),  
-  
-    backToMode: document.getElementById("backToModeMenuButton")  
-  
-}  
-  modal: {
+buttons: {
+
+    play: document.getElementById("playButton"),
+
+    back: document.getElementById("backToMainMenuButton"),
+
+    mode1v1: document.getElementById("mode1v1Button"),
+
+    mode3v3: document.getElementById("mode3v3Button"),
+
+    mode5v5: document.getElementById("mode5v5Button"),
+
+    createRoom: document.getElementById("createRoomButton"),
+
+    joinRoom: document.getElementById("joinRoomButton"),
+
+    backToMode: document.getElementById("backToModeMenuButton")
+
+},
+
+modal: {
 
     overlay: document.getElementById("modalOverlay"),
 
@@ -59,45 +60,6 @@ const UI = {
 
 }
 
-};  
-  
-const Game = {
-
-    currentScreen: "mainMenu",
-
-    selectedMode: null
-
-};
-
-function showScreen(screenName) {
-
-    Game.currentScreen = screenName;
-
-    for (const screen of Object.values(UI.screens)) {
-
-        screen.style.display = "none";
-
-    }
-
-    UI.screens[screenName].style.display = "flex";
-
-} 
-
-  function showModal(title, text) {
-
-    UI.modal.title.textContent = title;
-
-    UI.modal.text.textContent = text;
-
-    UI.modal.overlay.style.display = "flex";
-
-}
-
-function hideModal() {
-
-    UI.modal.overlay.style.display = "none";
-
-}
 
 //==================================================  
 // ОБРАБОТКА КНОПОК  
@@ -136,10 +98,6 @@ function checkOrientation() {
   
         // Показываем последний экран  
         showScreen(Game.currentScreen);
-        showModal(
-    "Полноэкранный режим",
-    "Для лучшего игрового опыта рекомендуем открыть игру в полноэкранном режиме."
-);
   
     }  
   
