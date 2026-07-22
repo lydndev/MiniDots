@@ -23,25 +23,37 @@ const UI = {
     },
 
     buttons: {
+
         play: document.getElementById("playButton"),
+
         back: document.getElementById("backToMainMenuButton"),
 
         mode1v1: document.getElementById("mode1v1Button"),
+
         mode3v3: document.getElementById("mode3v3Button"),
+
         mode5v5: document.getElementById("mode5v5Button"),
 
         createRoom: document.getElementById("createRoomButton"),
+
         joinRoom: document.getElementById("joinRoomButton"),
 
         backToMode: document.getElementById("backToModeMenuButton")
+
     },
 
     modal: {
+
         overlay: document.getElementById("modalOverlay"),
+
         title: document.getElementById("modalTitle"),
+
         text: document.getElementById("modalText"),
+
         accept: document.getElementById("modalAcceptButton"),
+
         cancel: document.getElementById("modalCancelButton")
+
     }
 
 };
@@ -53,6 +65,7 @@ const UI = {
 const Game = {
 
     currentScreen: "mainMenu",
+
     selectedMode: null
 
 };
@@ -66,7 +79,9 @@ function showScreen(screenName) {
     Game.currentScreen = screenName;
 
     for (const screen of Object.values(UI.screens)) {
+
         screen.style.display = "none";
+
     }
 
     UI.screens[screenName].style.display = "flex";
@@ -80,6 +95,7 @@ function showScreen(screenName) {
 function showModal(title, text) {
 
     UI.modal.title.textContent = title;
+
     UI.modal.text.textContent = text;
 
     UI.modal.overlay.style.display = "flex";
@@ -127,7 +143,9 @@ function checkOrientation() {
         UI.rotateScreen.style.display = "flex";
 
         for (const screen of Object.values(UI.screens)) {
+
             screen.style.display = "none";
+
         }
 
     } else {
@@ -143,7 +161,7 @@ function checkOrientation() {
 window.addEventListener("resize", checkOrientation);
 
 //==================================================
-// КНОПКИ
+// ОБРАБОТКА КНОПОК
 //==================================================
 
 // Главное меню
@@ -196,18 +214,27 @@ UI.buttons.backToMode.addEventListener("click", () => {
 
 });
 
-// Модальное окно
+//==================================================
+// КНОПКИ МОДАЛЬНОГО ОКНА
+//==================================================
 
-UI.modal.cancel.addEventListener("click", hideModal);
+UI.modal.cancel.addEventListener("click", () => {
 
-UI.modal.accept.addEventListener("click", enterFullscreen);
+    hideModal();
+
+});
+
+UI.modal.accept.addEventListener("click", () => {
+
+    enterFullscreen();
+
+});
 
 //==================================================
 // ЗАПУСК
 //==================================================
 
 showScreen("mainMenu");
-alert("script работает");
 
 checkOrientation();
 
