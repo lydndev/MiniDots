@@ -23,6 +23,8 @@ const playButton = document.getElementById("playButton");
 
 const screens = {
 
+const rotateScreen = document.getElementById("rotateScreen");
+
     mainMenu,
     modeMenu
 
@@ -57,3 +59,27 @@ backToMainMenuButton.addEventListener("click", () => {
     showScreen("mainMenu");
 
 });
+
+//==================================================
+// ПРОВЕРКА ОРИЕНТАЦИИ
+//==================================================
+
+function checkOrientation(){
+
+    if(window.innerHeight > window.innerWidth){
+
+        rotateScreen.style.display = "flex";
+
+    }
+
+    else{
+
+        rotateScreen.style.display = "none";
+
+    }
+
+}
+
+window.addEventListener("resize", checkOrientation);
+
+checkOrientation();
