@@ -129,6 +129,16 @@ function hideModal() {
 }
 
 //==================================================
+// СТАРТОВОЕ ОКНО
+//==================================================
+
+function hideStartOverlay() {
+
+    UI.start.overlay.style.display = "none";
+
+}
+
+//==================================================
 // КОМНАТА
 //==================================================
 
@@ -285,6 +295,14 @@ UI.buttons.backToMode.addEventListener("click", () => {
 UI.buttons.leaveRoom.addEventListener("click", () => {
 
     showScreen("roomMenu");
+});
+
+// Стартовое окно
+
+UI.start.button.addEventListener("click", () => {
+
+    hideStartOverlay();
+
 });
 
 //==================================================
