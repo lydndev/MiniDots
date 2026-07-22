@@ -25,6 +25,12 @@ body {
     width: 100%;
     height: 100%;
     display: none;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 18px;
 }
 
 /*==================================================
@@ -34,12 +40,6 @@ body {
 #mainMenu {
     width: 100%;
     height: 100%;
-
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    gap: 18px;
 }
 
 #mainMenu h1 {
