@@ -136,6 +136,15 @@ function hideStartOverlay() {
 
     UI.start.overlay.style.display = "none";
 
+    if (document.documentElement.requestFullscreen) {
+
+        showModal(
+            "Полноэкранный режим",
+            "Теперь вы можете включить полноэкранный режим для более комфортной игры."
+        );
+
+    }
+
 }
 
 //==================================================
