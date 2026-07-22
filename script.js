@@ -20,8 +20,7 @@ const UI = {
         mainMenu: document.getElementById("mainMenu"),
         modeMenu: document.getElementById("modeMenu"),
         roomMenu: document.getElementById("roomMenu"),
-        gameRoom:
-document.getElementById("gameRoom")
+        gameRoom: document.getElementById("gameRoom")
     },
 
     buttons: {
