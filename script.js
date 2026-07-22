@@ -75,11 +75,6 @@ UI.buttons.back.addEventListener("click", () => {
 
 function checkOrientation() {
 
-    alert(
-        "Высота: " + window.innerHeight +
-        "\nШирина: " + window.innerWidth
-    );
-
     if (window.innerHeight > window.innerWidth) {
 
         rotateScreen.style.display = "flex";
