@@ -81,3 +81,57 @@ body {
     transform:scale(.95);
 
 }
+
+/*==================================================
+ЭКРАН ПОВОРОТА
+==================================================*/
+
+#rotateScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#0b1220;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+#rotateContent{
+
+    text-align:center;
+
+    color:white;
+
+}
+
+#rotateContent h1{
+
+    font-size:90px;
+
+}
+
+#rotateContent h2{
+
+    margin-top:20px;
+
+    font-size:34px;
+
+}
+
+#rotateContent p{
+
+    margin-top:15px;
+
+    font-size:20px;
+
+    opacity:.8;
+
+}
