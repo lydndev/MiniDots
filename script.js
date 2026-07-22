@@ -64,15 +64,18 @@ backToMainMenuButton.addEventListener("click", () => {
 // ПРОВЕРКА ОРИЕНТАЦИИ
 //==================================================
 
-function checkOrientation(){
+function checkOrientation() {
 
-    if(window.innerHeight > window.innerWidth){
+    alert(
+        "Высота: " + window.innerHeight +
+        "\nШирина: " + window.innerWidth
+    );
+
+    if (window.innerHeight > window.innerWidth) {
 
         rotateScreen.style.display = "flex";
 
-    }
-
-    else{
+    } else {
 
         rotateScreen.style.display = "none";
 
