@@ -94,7 +94,7 @@ function checkOrientation() {
   
     if (window.innerHeight > window.innerWidth) {  
   
-        rotateScreen.style.display = "flex";  
+      UI.rotateScreen.style.display = "flex";  
   
         // Скрываем игровые экраны  
         for (const screen of Object.values(UI.screens)) {  
@@ -103,7 +103,7 @@ function checkOrientation() {
   
     } else {  
   
-        rotateScreen.style.display = "none";  
+      UI.rotateScreen.style.display = "none";  
   
         // Показываем последний экран  
         showScreen(Game.currentScreen);
