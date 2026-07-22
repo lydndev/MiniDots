@@ -145,3 +145,87 @@ body {
     opacity:.8;
 
 }
+
+/*==================================================
+МОДАЛЬНОЕ ОКНО
+==================================================*/
+
+#modalOverlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:20000;
+
+}
+
+#modalWindow{
+
+    width:min(90%,420px);
+
+    background:#1b2435;
+
+    border-radius:16px;
+
+    padding:25px;
+
+    text-align:center;
+
+    color:white;
+
+    box-shadow:0 0 30px rgba(0,0,0,.5);
+
+}
+
+#modalWindow h2{
+
+    margin-bottom:15px;
+
+}
+
+#modalWindow p{
+
+    line-height:1.5;
+
+    opacity:.9;
+
+}
+
+#modalButtons{
+
+    margin-top:25px;
+
+    display:flex;
+
+    gap:12px;
+
+    justify-content:center;
+
+}
+
+#modalButtons button{
+
+    flex:1;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#32415d;
+
+    color:white;
+
+    font-size:18px;
+
+}
