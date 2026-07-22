@@ -62,7 +62,15 @@ const UI = {
 
         cancel: document.getElementById("modalCancelButton")
 
-    }
+    },
+
+start: {
+
+    overlay: document.getElementById("startOverlay"),
+
+    button: document.getElementById("startButton")
+
+}
 
 };
 
