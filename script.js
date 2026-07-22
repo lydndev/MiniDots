@@ -23,22 +23,31 @@ const playButton = document.getElementById("playButton");
 
 const rotateScreen = document.getElementById("rotateScreen");
 
-const screens = {
+const UI = {
 
-    mainMenu,
-    modeMenu
+    rotateScreen: document.getElementById("rotateScreen"),
+
+    screens: {
+        mainMenu: document.getElementById("mainMenu"),
+        modeMenu: document.getElementById("modeMenu")
+    },
+
+    buttons: {
+        play: document.getElementById("playButton"),
+        back: document.getElementById("backToMainMenuButton")
+    }
 
 };
 
 function showScreen(screenName) {
 
-    for (const screen in screens) {
+    for (const screen of Object.values(UI.screens)) {
 
-        screens[screen].style.display = "none";
+        screen.style.display = "none";
 
     }
 
-    screens[screenName].style.display = "flex";
+    UI.screens[screenName].style.display = "flex";
 
 }
 
@@ -46,7 +55,7 @@ function showScreen(screenName) {
 // ОБРАБОТКА КНОПОК
 //==================================================
 
-playButton.addEventListener("click", () => {
+UI.buttons.play.addEventListener("click", () => {
 
     showScreen("modeMenu");
 
@@ -54,7 +63,7 @@ playButton.addEventListener("click", () => {
 
 const backToMainMenuButton = document.getElementById("backToMainMenuButton");
 
-backToMainMenuButton.addEventListener("click", () => {
+UI.buttons.back.addEventListener("click", () => {
 
     showScreen("mainMenu");
 
@@ -86,3 +95,5 @@ function checkOrientation() {
 window.addEventListener("resize", checkOrientation);
 
 checkOrientation();
+
+showScreen("mainMenu");
