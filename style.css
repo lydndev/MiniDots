@@ -16,3 +16,68 @@ body {
     width: 100%;
     height: 100%;
 }
+/*==================================================
+ГЛАВНОЕ МЕНЮ
+==================================================*/
+
+#mainMenu {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 18px;
+}
+
+#mainMenu h1 {
+
+    margin-bottom: 40px;
+
+    font-size: 64px;
+
+    color: white;
+
+    letter-spacing: 4px;
+
+    text-shadow: 0 0 20px rgba(255,255,255,.35);
+
+}
+
+#mainMenu button {
+
+    width: 260px;
+
+    height: 60px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #2a364a;
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+#mainMenu button:hover{
+
+    background:#40506d;
+
+    transform:scale(1.05);
+
+}
+
+#mainMenu button:active{
+
+    transform:scale(.95);
+
+}
