@@ -93,6 +93,44 @@ body {
 }
 
 /*==================================================
+ОБЩИЙ СТИЛЬ КНОПОК
+==================================================*/
+
+.screen button{
+
+    width:260px;
+    height:60px;
+
+    border:none;
+    border-radius:12px;
+
+    background:#2a364a;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.screen button:hover{
+
+    background:#40506d;
+
+    transform:scale(1.05);
+
+}
+
+.screen button:active{
+
+    transform:scale(.95);
+
+}
+
+/*==================================================
 ЭКРАН ПОВОРОТА
 ==================================================*/
 
