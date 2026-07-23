@@ -8,7 +8,7 @@ room.js
 */
 
 const FIREBASE_URL =
-"https://minidots-ee1de-default-rtdb.firebaseio.com";
+"https://minidots-ee1de-default-rtdb.europe-west1.firebasedatabase.app";
 
 //==================================================
 // КОМНАТА
