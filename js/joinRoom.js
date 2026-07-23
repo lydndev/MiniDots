@@ -1,3 +1,5 @@
+alert("joinRoom.js работает");
+
 import { db } from "./firebase.js";
 
 import {
