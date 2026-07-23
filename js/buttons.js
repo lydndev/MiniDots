@@ -91,3 +91,6 @@ UI.modal.accept.addEventListener("click", () => {
     enterFullscreen();
 
 });
+
+
+UI.buttons.joinRoomConfirm.addEventListener("click", joinRoom);
