@@ -1,3 +1,15 @@
+/*
+========================================================
+MiniDots
+
+Файл:
+roomCreate.js
+========================================================
+*/
+
+const FIREBASE_URL =
+"https://minidots-ee1de-default-rtdb.europe-west1.firebasedatabase.app";
+
 //==================================================
 // КОМНАТА
 //==================================================
@@ -17,6 +29,39 @@ function generateRoomCode() {
     return code;
 
 }
+
+//==================================================
+// СОЗДАНИЕ СЛОТОВ
+//==================================================
+
+function createTeamSlots(teamId, playerCount) {
+
+    const team = document.getElementById(teamId);
+
+    team.innerHTML = "";
+
+    for (let i = 0; i < playerCount; i++) {
+
+        const slot = document.createElement("div");
+
+        slot.className = "playerSlot";
+
+        if (i === 0 && teamId === "blueTeam") {
+
+            slot.textContent = "👑 Вы";
+
+        } else {
+
+            slot.textContent = "Свободно";
+
+        }
+
+        team.appendChild(slot);
+
+    }
+
+}
+
 
 async function createRoom() {
 
@@ -63,5 +108,33 @@ async function createRoom() {
     document.getElementById("redTeam").innerHTML = "";
 
     showScreen("gameRoom");
+
+}
+
+//==================================================
+// ДЕЙСТВИЯ В КОМНАТЕ
+//==================================================
+
+function copyRoomCode() {
+
+    alert("Копирование кода появится позже");
+
+}
+
+function selectMap() {
+
+    alert("Выбор карты появится позже");
+
+}
+
+function startRoom() {
+
+    alert("Запуск игры появится позже");
+
+}
+
+function leaveRoom() {
+
+    showScreen("roomMenu");
 
 }
