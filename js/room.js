@@ -45,3 +45,31 @@ function createRoom() {
     showScreen("gameRoom");
 
 }
+
+//==================================================
+// ДЕЙСТВИЯ В КОМНАТЕ
+//==================================================
+
+function copyRoomCode() {
+
+    alert("Копирование кода появится позже");
+
+}
+
+function selectMap() {
+
+    alert("Выбор карты появится позже");
+
+}
+
+function startRoom() {
+
+    alert("Запуск игры появится позже");
+
+}
+
+function leaveRoom() {
+
+    showScreen("roomMenu");
+
+}
