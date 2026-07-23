@@ -31,8 +31,6 @@ async function findRoom(code) {
             `${FIREBASE_URL}/rooms/${code}.json`
         );
 
-        alert("Ответ сервера: " + response.status);
-
         const data = await response.json();
 
         return data;
