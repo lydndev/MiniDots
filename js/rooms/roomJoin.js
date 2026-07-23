@@ -77,6 +77,35 @@ async function joinRoom() {
 
     }
 
-    alert("Комната найдена!");
+    // Добавляем игрока
+
+const playerId = "player_" + Date.now();
+
+await fetch(
+    `${FIREBASE_URL}/rooms/${code}/players/${playerId}.json`,
+    {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+
+            name: "Игрок"
+
+        })
+    }
+);
+
+Game.roomCode = code;
+
+document.getElementById("roomCode").textContent =
+    "Код: " + code;
+
+document.getElementById("roomModeText").textContent =
+    "Режим: " + room.mode;
+
+showScreen("gameRoom");
+
+alert("Вы вошли в комнату!");
 
 }
