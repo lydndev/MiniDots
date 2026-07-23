@@ -25,11 +25,25 @@ function openJoinRoom() {
 
 async function findRoom(code) {
 
-    const response = await fetch(
-        `${FIREBASE_URL}/rooms/${code}.json`
-    );
+    try {
 
-    return await response.json();
+        const response = await fetch(
+            `${FIREBASE_URL}/rooms/${code}.json`
+        );
+
+        alert("Ответ сервера: " + response.status);
+
+        const data = await response.json();
+
+        return data;
+
+    } catch (e) {
+
+        alert("Ошибка:\n" + e);
+
+        return null;
+
+    }
 
 }
 
