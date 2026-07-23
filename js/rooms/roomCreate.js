@@ -102,8 +102,7 @@ async function createRoom() {
     document.getElementById("roomModeText").textContent =
         "Режим: " + Game.selectedMode;
 
-    document.getElementById("blueTeam").innerHTML =
-        `<div class="playerSlot">👑 Вы</div>`;
+    await updatePlayers();
 
     document.getElementById("redTeam").innerHTML = "";
 
