@@ -61,10 +61,7 @@ UI.buttons.backToMode.addEventListener("click", () => {
 
 // Выйти из комнаты
 
-UI.buttons.leaveRoom.addEventListener("click", () => {
-
-    showScreen("roomMenu");
-});
+UI.buttons.leaveRoom.addEventListener("click", leaveRoom);
 
 // Стартовое окно
 
