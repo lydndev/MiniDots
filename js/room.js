@@ -27,6 +27,39 @@ function generateRoomCode() {
 
 }
 
+//==================================================
+// СОЗДАНИЕ СЛОТОВ
+//==================================================
+
+function createTeamSlots(teamId, playerCount) {
+
+    const team = document.getElementById(teamId);
+
+    team.innerHTML = "";
+
+    for (let i = 0; i < playerCount; i++) {
+
+        const slot = document.createElement("div");
+
+        slot.className = "playerSlot";
+
+        if (i === 0 && teamId === "blueTeam") {
+
+            slot.textContent = "👑 Вы";
+
+        } else {
+
+            slot.textContent = "Свободно";
+
+        }
+
+        team.appendChild(slot);
+
+    }
+
+}
+
+
 function createRoom() {
 
     Game.roomCode = generateRoomCode();
@@ -37,10 +70,23 @@ function createRoom() {
     document.getElementById("roomModeText").textContent =
         "Режим: " + Game.selectedMode;
 
-    document.getElementById("blueTeam").innerHTML =
-        `<div class="playerSlot">👑 Вы</div>`;
+    let playersPerTeam = 1;
 
-    document.getElementById("redTeam").innerHTML = "";
+if (Game.selectedMode === "3v3") {
+
+    playersPerTeam = 3;
+
+}
+
+if (Game.selectedMode === "5v5") {
+
+    playersPerTeam = 5;
+
+}
+
+createTeamSlots("blueTeam", playersPerTeam);
+
+createTeamSlots("redTeam", playersPerTeam);
 
     showScreen("gameRoom");
 
