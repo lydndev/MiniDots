@@ -30,6 +30,10 @@ const UI = {
 
         joinRoom: document.getElementById("joinRoomButton"),
 
+        joinRoomConfirm: document.getElementById("joinRoomConfirmButton"),
+
+        backToRoomMenu: document.getElementById("backToRoomMenuButton"),
+
         backToMode: document.getElementById("backToModeMenuButton"),
         copyRoomCode: document.getElementById("copyRoomCodeButton"),
 
