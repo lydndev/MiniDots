@@ -136,6 +136,8 @@ function hideStartOverlay() {
 
     UI.start.overlay.style.display = "none";
 
+    localStorage.setItem("startMessageSeen", "true");
+
     if (document.documentElement.requestFullscreen) {
 
         showModal(
@@ -338,11 +340,8 @@ showScreen("mainMenu");
 
 checkOrientation();
 
-if (window.innerWidth > window.innerHeight) {
+if (localStorage.getItem("startMessageSeen") === "true") {
 
-    showModal(
-        "Полноэкранный режим",
-        "Для лучшего игрового опыта рекомендуем включить полноэкранный режим."
-    );
+    UI.start.overlay.style.display = "none";
 
 }
