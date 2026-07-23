@@ -63,9 +63,38 @@ function createTeamSlots(teamId, playerCount) {
 }
 
 
-function createRoom() {
+async function createRoom() {
 
     Game.roomCode = generateRoomCode();
+
+    const roomData = {
+
+        mode: Game.selectedMode,
+
+        leader: "Вы",
+
+        players: {
+
+            host: {
+
+                name: "Вы"
+
+            }
+
+        }
+
+    };
+
+    await fetch(
+        `${FIREBASE_URL}/rooms/${Game.roomCode}.json`,
+        {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(roomData)
+        }
+    );
 
     document.getElementById("roomCode").textContent =
         "Код: " + Game.roomCode;
@@ -73,23 +102,10 @@ function createRoom() {
     document.getElementById("roomModeText").textContent =
         "Режим: " + Game.selectedMode;
 
-    let playersPerTeam = 1;
+    document.getElementById("blueTeam").innerHTML =
+        `<div class="playerSlot">👑 Вы</div>`;
 
-if (Game.selectedMode === "3v3") {
-
-    playersPerTeam = 3;
-
-}
-
-if (Game.selectedMode === "5v5") {
-
-    playersPerTeam = 5;
-
-}
-
-createTeamSlots("blueTeam", playersPerTeam);
-
-createTeamSlots("redTeam", playersPerTeam);
+    document.getElementById("redTeam").innerHTML = "";
 
     showScreen("gameRoom");
 
