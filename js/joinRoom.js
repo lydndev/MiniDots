@@ -36,3 +36,9 @@ async function joinRoom() {
     alert("Комната найдена!");
 
 }
+
+if (window.firebaseDB) {
+    alert("Firebase подключён");
+} else {
+    alert("Firebase НЕ подключён");
+}
