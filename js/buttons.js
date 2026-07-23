@@ -22,25 +22,19 @@ UI.buttons.back.addEventListener("click", () => {
 
 UI.buttons.mode1v1.addEventListener("click", () => {
 
-    Game.selectedMode = "1v1";
-
-    showScreen("roomMenu");
+    selectMode("1v1");
 
 });
 
 UI.buttons.mode3v3.addEventListener("click", () => {
 
-    Game.selectedMode = "3v3";
-
-    showScreen("roomMenu");
+    selectMode("3v3");
 
 });
 
 UI.buttons.mode5v5.addEventListener("click", () => {
 
-    Game.selectedMode = "5v5";
-
-    showScreen("roomMenu");
+    selectMode("5v5");
 
 });
 
