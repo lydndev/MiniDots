@@ -19,9 +19,9 @@ async function joinRoom() {
 
     }
 
-    const snapshot = await db
-        .ref("rooms/" + code)
-        .once("value");
+    const snapshot = await window.db
+    .ref("rooms/" + code)
+    .once("value");
 
     if (!snapshot.exists()) {
 
