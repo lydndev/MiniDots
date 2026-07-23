@@ -10,6 +10,7 @@ const UI = {
         mainMenu: document.getElementById("mainMenu"),
         modeMenu: document.getElementById("modeMenu"),
         roomMenu: document.getElementById("roomMenu"),
+        joinRoomScreen: document.getElementById("joinRoomScreen"),
         gameRoom: document.getElementById("gameRoom")
     },
 
