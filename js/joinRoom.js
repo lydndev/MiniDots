@@ -1,11 +1,7 @@
-alert("joinRoom.js работает");
 
-import { db } from "./firebase.js";
-
-import {
-    ref,
-    get
-} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-database.js";
+//==================================================
+// ВХОД В КОМНАТУ
+//==================================================
 
 async function joinRoom() {
 
@@ -15,7 +11,7 @@ async function joinRoom() {
         .trim()
         .toUpperCase();
 
-    if (code === "") {
+    if (code.length !== 6) {
 
         alert("Введите код комнаты");
 
@@ -23,9 +19,9 @@ async function joinRoom() {
 
     }
 
-    const roomRef = ref(db, "rooms/" + code);
-
-    const snapshot = await get(roomRef);
+    const snapshot = await db
+        .ref("rooms/" + code)
+        .once("value");
 
     if (!snapshot.exists()) {
 
@@ -37,10 +33,4 @@ async function joinRoom() {
 
     alert("Комната найдена!");
 
-}
-
-if (window.firebaseDB) {
-    alert("Firebase подключён");
-} else {
-    alert("Firebase НЕ подключён");
 }
