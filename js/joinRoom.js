@@ -1,3 +1,14 @@
+/*
+========================================================
+MiniDots
+
+Файл:
+joinRoom.js
+========================================================
+*/
+
+const FIREBASE_URL =
+"https://minidots-ee1de-default-rtdb.europe-west1.firebasedatabase.app";
 
 //==================================================
 // ВХОД В КОМНАТУ
@@ -19,11 +30,13 @@ async function joinRoom() {
 
     }
 
-    const snapshot = await window.db
-    .ref("rooms/" + code)
-    .once("value");
+    const response = await fetch(
+        `${FIREBASE_URL}/rooms/${code}.json`
+    );
 
-    if (!snapshot.exists()) {
+    const room = await response.json();
+
+    if (!room) {
 
         alert("Комната не найдена");
 
