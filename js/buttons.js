@@ -40,11 +40,7 @@ UI.buttons.createRoom.addEventListener("click", () => {
 
 // Войти по коду
 
-UI.buttons.joinRoom.addEventListener("click", () => {
-
-    showScreen("joinRoomScreen");
-
-});
+UI.buttons.joinRoom.addEventListener("click", openJoinRoom);
 
 // Назад к выбору режима
 
