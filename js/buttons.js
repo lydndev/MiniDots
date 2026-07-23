@@ -4,19 +4,11 @@
 
 // Главное меню
 
-UI.buttons.play.addEventListener("click", () => {
-
-    showScreen("modeMenu");
-
-});
+UI.buttons.play.addEventListener("click", openModeMenu);
 
 // Назад в главное меню
 
-UI.buttons.back.addEventListener("click", () => {
-
-    showScreen("mainMenu");
-
-});
+UI.buttons.back.addEventListener("click", backToMainMenu);
 
 // Выбор режима
 
@@ -48,10 +40,7 @@ UI.buttons.createRoom.addEventListener("click", () => {
 
 // Назад к выбору режима
 
-UI.buttons.backToMode.addEventListener("click", () => {
-
-    showScreen("modeMenu");
-});
+UI.buttons.backToMode.addEventListener("click", backToModeMenu);
 
 // Выйти из комнаты
 
