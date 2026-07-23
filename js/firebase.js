@@ -5,7 +5,7 @@ import { getDatabase } from "https://www.gstatic.com/firebasejs/12.16.0/firebase
 const firebaseConfig = {
     apiKey: "AIzaSyCf_Kx_ASA5F-ym8KKi3KwSh8Yo1FPuiUg",
     authDomain: "minidots-ee1de.firebaseapp.com",
-    databaseURL: "https://minidots-ee1de-default-rtdb.firebaseio.com",
+    databaseURL: "https://minidots-ee1de-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "minidots-ee1de",
     storageBucket: "minidots-ee1de.firebasestorage.app",
     messagingSenderId: "717424414180",
