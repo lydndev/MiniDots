@@ -104,6 +104,8 @@ document.getElementById("roomModeText").textContent =
 
 showScreen("gameRoom");
 
+await updatePlayers();
+
 alert("Вы вошли в комнату!");
 
 }
