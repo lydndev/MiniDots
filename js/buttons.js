@@ -63,6 +63,14 @@ UI.buttons.backToMode.addEventListener("click", () => {
 
 UI.buttons.leaveRoom.addEventListener("click", leaveRoom);
 
+// КНОПКИ КОМНАТЫ
+
+UI.buttons.copyRoomCode.addEventListener("click", copyRoomCode);
+
+UI.buttons.selectMap.addEventListener("click", selectMap);
+
+UI.buttons.startRoom.addEventListener("click", startRoom);
+
 // Стартовое окно
 
 UI.start.button.addEventListener("click", () => {
