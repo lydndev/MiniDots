@@ -38,9 +38,23 @@ UI.buttons.createRoom.addEventListener("click", () => {
 
 });
 
+// Войти по коду
+
+UI.buttons.joinRoom.addEventListener("click", () => {
+
+    showScreen("joinRoomScreen");
+
+});
+
 // Назад к выбору режима
 
 UI.buttons.backToMode.addEventListener("click", backToModeMenu);
+
+UI.buttons.backToRoomMenu.addEventListener("click", () => {
+
+    showScreen("roomMenu");
+
+});
 
 // Выйти из комнаты
 
